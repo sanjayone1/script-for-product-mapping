@@ -20,14 +20,6 @@ headers = {
     'Cookie': 'BIGipServerABACUSPROD_443_pool=570514186.47873.0000; BIGipServerABACUSPROD_443_pool=570514186.47873.0000'
 }
 
-# Proxy settings
-proxy_url = "proxy.corp.oneassure.in"
-proxy_port = 8181
-proxies = {
-    "http": f"http://{proxy_url}:{proxy_port}",
-    "https": f"http://{proxy_url}:{proxy_port}"
-}
-
 # Prepare to store results in a file
 output_file = 'pincode_zones_newest-care-supreme.json'
 
@@ -61,9 +53,9 @@ for pincode in pincodes:
         "abacusId": "3105"
     }
 
-    # Make the API request using the proxy
+    # Make the API request
     try:
-        response = requests.post(url, headers=headers, json=payload, proxies=proxies)
+        response = requests.post(url, headers=headers, json=payload)
         print(f"Response status code: {response.status_code}")  # Debug print for status code
 
         if response.status_code == 200:
