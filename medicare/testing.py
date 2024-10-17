@@ -23,12 +23,6 @@ tiers = {
     "tiers": []
 }
 
-# Proxy configuration
-proxies = {
-    'http': 'http://proxy.corp.non-prod.oneassure.in:8181',
-    'https': 'http://proxy.corp.non-prod.oneassure.in:8181',
-}
-
 # Function to save results to a JSON file
 def save_results():
     with open('tiers_output_new.json', 'w') as json_file:
@@ -77,7 +71,7 @@ for index, pincode_doc in enumerate(pincodes):
     # Make API request
     print(f"Making API request for pincode: {pincode}")
     try:
-        response = requests.post(url, headers=headers, json=payload, proxies=proxies)
+        response = requests.post(url, headers=headers, json=payload)
         print(f"Received response for pincode: {pincode} with status code: {response.status_code}")
 
         if response.status_code == 200:
