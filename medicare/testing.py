@@ -1,11 +1,15 @@
 import requests
 import json
-from pymongo import MongoClient
 
-# MongoDB connection
-client = MongoClient('mongodb://oneassure-admin:0N3455ur3@localhost:27017/')
-db = client['oneassure']  # Replace with your database name
-pincode_collection = db['pincodes_master']
+# Load pincodes from a JSON file
+def load_pincodes_from_json(file_path):
+    with open(file_path, 'r') as json_file:
+        return json.load(json_file)
+
+# Load pincodes
+json_file_path = 'broker-pre-staging.pincodes_master.json'  # Path to your JSON file
+pincodes = load_pincodes_from_json(json_file_path)
+print(f"Total pincodes fetched: {len(pincodes)}")
 
 # API details
 url = 'https://foyer.tataaig.com/quick-quote/create'
@@ -18,10 +22,6 @@ headers = {
 tiers = {
     "tiers": []
 }
-
-# Fetch all pincodes from the collection
-pincodes = list(pincode_collection.find({}))
-print(f"Total pincodes fetched: {len(pincodes)}")
 
 # Proxy configuration
 proxies = {
