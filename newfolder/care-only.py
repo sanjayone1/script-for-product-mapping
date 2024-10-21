@@ -15,20 +15,14 @@ pincodes = load_pincodes_from_json(json_file_path)
 # API endpoint and headers
 url = 'https://abacus.careinsurance.com/religare_api/api/web/v1/abacus/partner?formattype=json'
 headers = {
-    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IntcImFwaV9rZXlcIjpcIkw4RDA3dldDWDJXM0NrVGpoMG0ydjc1MmlFUi01cjM0XCIsXCJlbWFpbFwiOlwib25laW5zdXJlQGNhcmVoZWFsdGhpbnN1cmFuY2UuY29tXCIsXCJleHBpcmVfdGltZVwiOjE3Mjk1NzUwNjh9Ig.aHhHqnc42FcYinyKuj2uAsipK31m7bJAAeqpwy7Z87s',
+    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IntcImFwaV9rZXlcIjpcIkw4RDA3dldDWDJXM0NrVGpoMG0ydjc1MmlFUi01cjM0XCIsXCJlbWFpbFwiOlwib25laW5zdXJlQGNhcmVoZWFsdGhpbnN1cmFuY2UuY29tXCIsXCJleHBpcmVfdGltZVwiOjE3MjkyNDQxMDZ9Ig.uh-luiheN8tHS2m-0oRePbE4zMw916VxlpUs6zBA9UY',
     'Content-Type': 'application/json',
     'Cookie': 'BIGipServerABACUSPROD_443_pool=570514186.47873.0000; BIGipServerABACUSPROD_443_pool=570514186.47873.0000'
 }
 
-# Proxy configuration
-proxies = {
-    'http': 'http://proxy.corp.non-prod.oneassure.in:8181',
-    'https': 'http://proxy.corp.non-prod.oneassure.in:8181',
-}
-
 # Prepare to store results and errors in separate files
-output_file = 'pincode_zones_newest-care-only.json'
-error_file = 'pincode_errors_zones_newest-care-only.json'
+output_file = 'pincode_zones_newest-care-supreme.json'
+error_file = 'pincode_errors.json'
 
 # Write an opening bracket for the JSON array
 with open(output_file, 'w') as json_file:
@@ -69,7 +63,7 @@ for pincode in pincodes:
 
     # Make the API request
     try:
-        response = requests.post(url, headers=headers, json=payload, proxies=proxies)
+        response = requests.post(url, headers=headers, json=payload)
         print(f"Response status code: {response.status_code}")  # Debug print for status code
 
         if response.status_code == 200:
@@ -107,5 +101,5 @@ with open(output_file, 'a') as json_file:
 with open(error_file, 'w') as json_file:
     json.dump(error_list, json_file)
 
-print("Pincode zones saved to pincode_zones_newest-care-only.json")
+print("Pincode zones saved to pincode_zones_newest-care-supreme.json")
 print(f"Errors saved to {error_file}")
