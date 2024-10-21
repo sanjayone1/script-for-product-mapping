@@ -15,7 +15,7 @@ pincodes = load_pincodes_from_json(json_file_path)
 # API endpoint and headers
 url = 'https://abacus.careinsurance.com/religare_api/api/web/v1/abacus/partner?formattype=json'
 headers = {
-    'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IntcImFwaV9rZXlcIjpcIkw4RDA3dldDWDJXM0NrVGpoMG0ydjc1MmlFUi01cjM0XCIsXCJlbWFpbFwiOlwib25laW5zdXJlQGNhcmVoZWFsdGhpbnN1cmFuY2UuY29tXCIsXCJleHBpcmVfdGltZVwiOjE3MjkyNDQxMDZ9Ig.uh-luiheN8tHS2m-0oRePbE4zMw916VxlpUs6zBA9UY',
+    'Authorization': 'BearereyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IntcImFwaV9rZXlcIjpcIkw4RDA3dldDWDJXM0NrVGpoMG0ydjc1MmlFUi01cjM0XCIsXCJlbWFpbFwiOlwib25laW5zdXJlQGNhcmVoZWFsdGhpbnN1cmFuY2UuY29tXCIsXCJleHBpcmVfdGltZVwiOjE3Mjk1NzUwNjh9Ig.aHhHqnc42FcYinyKuj2uAsipK31m7bJAAeqpwy7Z87s',
     'Content-Type': 'application/json',
     'Cookie': 'BIGipServerABACUSPROD_443_pool=570514186.47873.0000; BIGipServerABACUSPROD_443_pool=570514186.47873.0000'
 }
