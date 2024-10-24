@@ -40,7 +40,7 @@ def getZone(city, state, access_token):
 # Main execution
 if __name__ == "__main__":
     # Read city and state from CSV file
-    csv_file = "matching_pincodes.csv"  # Update this with the path to your CSV file
+    csv_file = "Unique_Pincodes_with_Data.csv"  # Update this with the path to your CSV file
     df = pd.read_csv(csv_file)
 
     # Initialize structures for storing zone mappings and errors
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     errors_log = []
 
     # Open JSON file for writing
-    with open("zone_mappings.json", "w") as json_file, open("error_log.json", "w") as error_file:
+    with open("new_zone_mappings.json", "w") as json_file, open("error_log.json", "w") as error_file:
         # Initialize a counter for processed pincodes
         processed_count = 0
 
