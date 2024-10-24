@@ -63,9 +63,9 @@ if __name__ == "__main__":
 
         # Iterate through each row in the DataFrame
         for index, row in df.iterrows():
-            city = row['CITYDISTRICT']  # Update this to your actual column name for city
-            state = row['STATE']        # Update this to your actual column name for state
-            pincode = row['PINCODE']    # Update this to your actual column name for pincode
+            city = row['TXT_CITYDISTRICT']  # Update this to your actual column name for city
+            state = row['TXT_STATE']        # Update this to your actual column name for state
+            pincode = row['NUM_PINCODE']    # Update this to your actual column name for pincode
 
             # Print the current city, state, and pincode being checked
             print(f"Checking city: {city}, state: {state}, pincode: {pincode}")
