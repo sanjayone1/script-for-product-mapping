@@ -6,10 +6,10 @@ with open('broker-pre-staging.pincodes_master.json', 'r') as json_file:
     pincodes = json.load(json_file)
 
 # API details
-url = 'https://proxy.oneassure.in/hdfc-optima-uat-quote/'
+url = 'https://proxy.oneassure.in/hdfc-optima-prod-quote/'
 headers = {
-    'MerchantKey': 'PROIHDFC',
-    'SecretToken': 'PROI@5836',
+    'MerchantKey': 'PRIBERGO',
+    'SecretToken': 'PRIB@4931',
     'Content-Type': 'application/json'
 }
 
@@ -36,7 +36,7 @@ for index, pincode_doc in enumerate(pincodes):
     # Prepare request payload
     payload = {
         "ConfigurationParam": {
-            "AgentCode": "PRO00001"
+            "AgentCode": "PRI00001"
         },
         "PlanName": "OptimaSecure",
         "PlanType": "Family",
